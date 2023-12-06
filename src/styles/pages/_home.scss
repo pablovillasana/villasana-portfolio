@@ -1,0 +1,143 @@
+// Mixins
+
+@mixin hero-mobile-pseudo {
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  transform: none;
+}
+
+.section {
+  &__title {
+    font-size: 2.5rem;
+    @include breakpoint(tablet) {
+      font-size: 2rem;
+    }
+  }
+
+  &__description {
+    margin-top: 8px;
+
+    font-size: 1.25rem;
+    @include breakpoint(tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  &.hero {
+    padding: 5%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-content: center;
+    position: relative;
+    overflow: hidden;
+    color: #b4b4b4;
+
+    @include breakpoint(tablet) {
+      grid-template-columns: 1fr;
+    }
+
+    &::after {
+      background: url("/languages.webp");
+      width: 35vw;
+      height: 191.31vw;
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      background-size: 15rem;
+      transform: translateY(-50%);
+      animation: animate 8s infinite linear;
+      opacity: 0.18;
+
+      @include breakpoint(tablet) {
+        @include hero-mobile-pseudo();
+      }
+
+      @keyframes animate {
+        from {
+          background-position: 0rem 0rem;
+        }
+        to {
+          background-position: 0rem 20rem;
+        }
+      }
+    }
+    &::before {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(to bottom, transparent 50%, black);
+      width: 40vw;
+      height: 100%;
+      z-index: 2;
+      content: "";
+
+      @include breakpoint(tablet) {
+        @include hero-mobile-pseudo();
+      }
+    }
+
+    & .hero__title {
+      font-size: 4rem;
+      color: white;
+
+      @include breakpoint(tablet) {
+        font-size: 3rem;
+      }
+    }
+
+    & .hero__description {
+      @include breakpoint(tablet) {
+        font-size: 1.75rem;
+      }
+    }
+    & .hero__sub {
+      font-size: 2rem;
+      font-weight: 600;
+
+      @include breakpoint(tablet) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+  &.me {
+    padding: 5%;
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    position: relative;
+    overflow: hidden;
+
+    & .content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 70%;
+
+      @include breakpoint(tablet) {
+        flex-direction: column;
+      }
+      @include breakpoint(desktop-big) {
+        width: 100%;
+      }
+    }
+
+    & .me__image {
+      width: 40%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+      margin-right: 50px;
+
+      @include breakpoint(tablet) {
+        width: 100%;
+
+        margin-right: unset;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

@@ -2,7 +2,8 @@
 $mobile-small: 320px;
 $mobile: 544px;
 $tablet: 768px;
-$desktop: 1024px;
+$desktop-small: 1024px;
+$desktop-big: 1600px;
 
 @mixin breakpoint($media) {
   @if $media == mobile-small {
@@ -17,8 +18,12 @@ $desktop: 1024px;
     @media only screen and (max-width: $tablet) {
       @content;
     }
-  } @else if $media == desktop {
-    @media only screen and (max-width: $desktop) {
+  } @else if $media == desktop-small {
+    @media only screen and (max-width: $desktop-small) {
+      @content;
+    }
+  } @else if $media == desktop-big {
+    @media only screen and (max-width: $desktop-big) {
       @content;
     }
   }
