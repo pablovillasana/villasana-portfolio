@@ -1,0 +1,23 @@
+.items-grid {
+
+    &__container {
+        display: grid;
+        gap: 24px;
+        margin: 24px 0;
+        grid-template-columns: repeat(3, 1fr);
+
+        @include breakpoint(tablet) {
+            grid-template-columns: repeat(1, 1fr);
+          }
+    }
+
+    &__item {
+        width: 100%;
+
+        background-color: lightgray;
+    }
+
+    &__img {
+        object-fit: contain;
+    }
+}

@@ -1,0 +1,13 @@
+.footer {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &__copyright {
+        font-size: 1rem;
+        @include breakpoint(tablet) {
+        font-size: 0.75rem;
+        }
+    }
+}

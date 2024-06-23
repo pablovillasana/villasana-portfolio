@@ -8,6 +8,8 @@
 }
 
 .section {
+  padding: 10%;
+
   &__title {
     font-size: 2.5rem;
     @include breakpoint(tablet) {
@@ -25,8 +27,7 @@
   }
 
   &.hero {
-    padding: 5%;
-    min-height: 100vh;
+    min-height: 80vh;
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-content: center;
@@ -35,6 +36,7 @@
     color: #b4b4b4;
 
     @include breakpoint(tablet) {
+      min-height: 100vh;
       grid-template-columns: 1fr;
     }
 
@@ -57,10 +59,10 @@
 
       @keyframes animate {
         from {
-          background-position: 0rem 0rem;
+          background-position: 0px 0px;
         }
         to {
-          background-position: 0rem 20rem;
+          background-position: 0px 320px;
         }
       }
     }
@@ -103,7 +105,6 @@
     }
   }
   &.me {
-    padding: 5%;
     min-height: 80vh;
     display: grid;
     grid-template-columns: 1fr;
@@ -132,11 +133,25 @@
       object-position: center;
       margin-right: 50px;
 
+      animation-name: invertImage;
+      animation-duration: 1ms; /* Firefox requires this to apply the animation */
+      animation-direction: alternate;
+      animation-timeline: scroll(root);
+
       @include breakpoint(tablet) {
         width: 100%;
 
         margin-right: unset;
         margin-bottom: 20px;
+      }
+
+      @keyframes invertImage {
+        from {
+          filter: invert(0%);
+        }
+        to {
+          filter: invert(100%);
+        }
       }
     }
   }

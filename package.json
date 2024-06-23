@@ -1,24 +1,38 @@
 {
-  "name": "villasana-portfolio-react",
-  "private": true,
-  "version": "0.0.0",
+  "author": {
+    "name": "Pablo Villasana",
+    "email": "pablo.villasana.jobs@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pablovillasana/villasana-portfolio"
+  },
   "type": "module",
+  "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "clean:dist": "npx rimraf dist",
+    "lint": "npx eslint --ext js ./src",
+    "lint:fix": "npx eslint --ext js ./src --fix",
+    "dev": "vite --host",
+    "build": "vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "preact": "^10.19.1",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0"
-  },
   "devDependencies": {
-    "@preact/preset-vite": "^2.6.0",
-    "postcss": "^8.4.31",
-    "prettier": "^2.8.8",
-    "sass": "^1.69.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0"
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-sonarjs": "^0.25.1",
+    "eslint-plugin-unicorn": "^53.0.0",
+    "postcss": "^8.4.38",
+    "postcss-load-config": "^6.0.1",
+    "prettier": "^3.2.5",
+    "sass": "^1.77.2",
+    "terser": "^5.31.0",
+    "vite": "^5.2.11"
   }
 }
